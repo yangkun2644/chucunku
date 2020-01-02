@@ -66,7 +66,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -122,6 +122,24 @@
     <Compile Include="FileCOS\FileOS.xaml.cs">
       <DependentUpon>FileOS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game2048\BoardGridLine.cs" />
+    <Compile Include="Game2048\Class1.cs" />
+    <Compile Include="Game2048\ColorBlock.cs" />
+    <Compile Include="Game2048\Direction.cs" />
+    <Compile Include="Game2048\Game.cs" />
+    <Compile Include="Game2048\Game2048Views.xaml.cs">
+      <DependentUpon>Game2048Views.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game2048\Game2048ViewsMasterMenuItem.cs" />
+    <Compile Include="Game2048\GameBoard.cs" />
+    <Compile Include="Game2048\IControlable.cs" />
+    <Compile Include="Game2048\IMovable.cs" />
+    <Compile Include="Game2048\KeysNavigation.cs" />
+    <Compile Include="Game2048\MouseNavigation.cs" />
+    <Compile Include="Game2048\Settings.cs" />
+    <Compile Include="Game2048\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage\Control_Home.xaml.cs">
       <DependentUpon>Control_Home.xaml</DependentUpon>
     </Compile>
@@ -153,6 +171,14 @@
     <Page Include="FileCOS\FileOS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Game2048\Game2048Views.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Game2048\SettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="HomePage\Control_Home.xaml">
       <SubType>Designer</SubType>
@@ -241,7 +267,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Game2048\settings.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using UI.Dispose;
 using UI.FileCOS;
+using UI.Game2048;
 using UI.HomePage;
 using UI.LoveBug;
 
@@ -111,6 +112,20 @@ namespace WpfApplication2
             ObservableCollection<PUTabItemModel> pUs = new ObservableCollection<PUTabItemModel>();
             pUs.Add(new PUTabItemModel { Header = "腾讯COS", Value = "OS", Content = new FileOS("Tencent") });
             pUs.Add(new PUTabItemModel { Header = "阿里云OSS", Value = "Customize", Content = new Customize() });
+            pUTab.BindingItems = pUs;
+            pUTab.TabControlStyle = TabControlStyles.Classic;
+            this.MenuView.Children.Clear();
+            this.MenuView.Children.Add(pUTab);
+        }
+
+        private void Game_Click(object sender, RoutedEventArgs e)
+        {
+            PUTabControl pUTab = new PUTabControl();
+            ObservableCollection<PUTabItemModel> pUs = new ObservableCollection<PUTabItemModel>();
+            var gameviews= new Game2048Views();
+            gameviews.Focusable = true;
+            gameviews.Focus();
+            pUs.Add(new PUTabItemModel { Header = "2048", Value = "Dispose", Content = gameviews });
             pUTab.BindingItems = pUs;
             pUTab.TabControlStyle = TabControlStyles.Classic;
             this.MenuView.Children.Clear();

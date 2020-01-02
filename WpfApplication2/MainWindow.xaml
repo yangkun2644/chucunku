@@ -69,7 +69,8 @@
                 </Grid.RowDefinitions>
                 <pu:PUButton  Grid.Row="0" x:Name="Dispose" Click="Dispose_Click">配置管理</pu:PUButton>
                 <pu:PUButton  Grid.Row="1" x:Name="FileAdmin" Click="FileAdmin_Click">云文件管理</pu:PUButton>
-                <pu:PUButton  Grid.Row="2" x:Name="bugtext" Click="bugtext_Click">Bug记录</pu:PUButton>
+                <pu:PUButton  Grid.Row="2" x:Name="Game" Click="Game_Click">游戏</pu:PUButton>
+                <pu:PUButton  Grid.Row="3" x:Name="bugtext" Click="bugtext_Click">Bug记录</pu:PUButton>
 
             </Grid>
         </Grid>

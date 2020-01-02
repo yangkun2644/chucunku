@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="UI.Game2048.Game2048Views"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Game2048"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="850">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <local:GameBoard Grid.Row="0" x:Name="board" Background="#CEBEB5" Margin="5"/>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="5" Background="LightGray">
+                <Button Name="optionBtn" Content="选项" Margin="5" Click="optionBtn_Click" Focusable="False"/>
+                <Button Name="newBtn" Content="新游戏" Margin="5" Click="newBtn_Click" Focusable="False"/>
+                <!--<Button Name="exitBtn" Content="退出" Margin="5" Click="exitBtn_Click" Focusable="False"/>-->
+                <TextBlock Text="积分："   Margin="5" Focusable="False"/>
+                <TextBlock Name="scoreText" Text="0" Margin="5" Focusable="False"/>
+                <TextBlock Text="操作步数：" Margin="5" Focusable="False"/>
+                <TextBlock Name="stepText" Text="0" Margin="5" Focusable="False"/>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="1"  Grid.Column="2" Content="上" x:Name="shang" Click="shang_Click"  Focusable="False"  />
+                    <Button  Content="下" Grid.Row="3"  Grid.Column="2"  x:Name="xia"  Click="xia_Click" Focusable="False"  />
+                    <Button  Content="左" Grid.Row="2"  Grid.Column="1" x:Name="zuo" Click="zuo_Click"  Focusable="False"  />
+                    <Button  Content="右" Grid.Row="2"  Grid.Column="3"  x:Name="yuo" Click="yuo_Click" Focusable="False" />
+                </Grid>
+               
+            </Grid>
+        </Grid>
+        
+            <!--<StackPanel Orientation="Horizontal">
+                <Button Name="min" Content="一" Width="20" Margin="5" Click="min_Click" Focusable="False"/>
+                <Button Name="max" Content="口" Width="20" Margin="5" Click="max_Click" Focusable="False"/>
+                <Button Name="close" Content="x" Width="20" Margin="5" Click="close_Click" Focusable="False"/>
+            </StackPanel>-->
+            
+       
+    </Grid>
+</UserControl>
