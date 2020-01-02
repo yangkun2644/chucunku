@@ -1,0 +1,46 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Dispose"
+             xmlns:UI="clr-namespace:Panuon.UI;assembly=Panuon.UI" x:Class="UI.Dispose.CustomizeList"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1000">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" ></RowDefinition>
+            <RowDefinition Height="10*" ></RowDefinition>
+            <RowDefinition Height="1*" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5.5*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" FontSize="30" Text="配置名称:" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+            <UI:PUTextBox Grid.Column="2" x:Name="SosuoText" TextBoxStyle="General" BorderCornerRadius="5"></UI:PUTextBox>
+            <UI:PUButton Grid.Column="3" x:Name="Sosuo" Click="Sosuo_Click"  ButtonStyle="Hollow" BorderCornerRadius="10" Width="100" Height="30" FontSize="22">搜索</UI:PUButton>
+            <UI:PUButton Grid.Column="4" ButtonStyle="Hollow" x:Name="Edit" Click="Edit_Click"   BorderCornerRadius="10" Width="100" Height="30" FontSize="22">编辑</UI:PUButton>
+            <UI:PUButton x:Name="Delete" Click="Delete_Click" Grid.Column="5" ButtonStyle="Hollow" BorderCornerRadius="10" Width="100" Height="30" FontSize="22">删除</UI:PUButton>
+            <UI:PUButton x:Name="AddModel" Click="AddModel_Click"    Grid.Column="6" ButtonStyle="Hollow" BorderCornerRadius="10" Width="100" Height="30" FontSize="22">添加</UI:PUButton>
+        </Grid>
+
+        <DataGrid x:Name="DisposeList"  Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="编号" Width="40"  Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="配置名称" Width="1.3*"  Binding="{Binding DisposeName}"/>
+                <DataGridTextColumn Header="配置文本1" Width="2*"  Binding="{Binding DisposeText1}"/>
+                <DataGridTextColumn Header="配置文本2" Width="2*"  Binding="{Binding DisposeText2}"/>
+                <DataGridTextColumn Header="配置文本3" Width="2*"  Binding="{Binding DisposeText3}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

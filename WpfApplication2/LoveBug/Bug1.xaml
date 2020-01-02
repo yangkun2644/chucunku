@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="UI.LoveBug.Bug1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.LoveBug"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text="1.封装仓储后调用修改操作出现了：" Margin="0,6,0,422.6" />
+        <TextBlock Text="Attaching an entity of type 'efAutoDetach.Model' failed because another entity of the same type already has the same primary key value." Margin="0,24,0,404.6" />
+        <TextBlock Text="This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph " Margin="0,40,0,388.6" />
+        <TextBlock Text="have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In " Margin="0,61,0,367.6" />
+        <TextBlock Text="this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or " Margin="0,82,0,346.6" />
+        <TextBlock Text="'Modified' as appropriate." Margin="0,103,0,325.6" />
+        <TextBlock Text="这是报的错误信息" Margin="0,124,0,304.6" />
+        <TextBlock Text="🤔神级翻译：意思是说，在上下文中，已经有一个同样主键的东西了。" Margin="0,145,0,283.6" />
+        <TextBlock Text="百度解决方法时网上说是直接new了新对象直接更新造成的，我很无语，我并不是new的，而且按照的代码来看是操作的原上下文对象" Margin="0,166,0,262.6" />
+        <TextBlock Text="最后解决方法是：我修改完成后都把上下文的这个对象移除掉（因为我是做的后台管理暂且不考虑太多）贴代码：" Margin="0,187,0,241.6" />
+        <TextBlock Text="ObjectContext oc = ((IObjectContextAdapter)db).ObjectContext;" Margin="0,208,0,220.6" />
+        <TextBlock Text="oc.Detach(obj);" Margin="0,229,0,199.6" />
+        <TextBlock Text="具体造成这种问题的原因还没查清，但是上下文确实存在一个相同主键的对象，暂时先这样解决吧，做到api的时候再研究！" Margin="0,250,0,178.6" />
+        <TextBlock Text="时间:2019/12/25/1:36" Margin="666,419,10,9.6" />
+
+    </Grid>
+</UserControl>

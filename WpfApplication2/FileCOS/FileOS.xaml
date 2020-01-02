@@ -1,0 +1,67 @@
+﻿<UserControl xmlns:UI="clr-namespace:Panuon.UI;assembly=Panuon.UI"  x:Class="UI.FileCOS.FileOS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.FileCOS"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*" ></RowDefinition>
+            <RowDefinition Height="9.3*" ></RowDefinition>
+            <RowDefinition Height="0.7*" ></RowDefinition>
+            <RowDefinition Height="4.3*" ></RowDefinition>
+            <RowDefinition Height="0.7*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <UI:PUButton Grid.Column="6" x:Name="shuaxin" Click="shuaxin_click"  ButtonStyle="Hollow">刷新</UI:PUButton>
+            <UI:PUButton Grid.Column="5" x:Name="xiazai" Click="xiazai_Click"  ButtonStyle="Hollow">上传</UI:PUButton>
+            <UI:PUButton Grid.Column="4" x:Name="shangchuan" Click="shangchuan_Click"  ButtonStyle="Hollow">下载</UI:PUButton>
+            <UI:PUButton Grid.Column="3" x:Name="delete" Click="delete_Click"  ButtonStyle="Hollow">删除</UI:PUButton>
+            <TextBlock Grid.Column="2" x:Name="shuliang" VerticalAlignment="Bottom"></TextBlock>
+        </Grid>
+        <!--<DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="Chucunto" Grid.Column="0" Grid.Row="1">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="储存桶名称" Width="1*"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="所在地域" Width="1*"  Binding="{Binding Location}"/>
+                <DataGridTextColumn Header="创建时间" Width="2*"  Binding="{Binding CreationDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+        <!--<UI:PUProgressBar Grid.Row="2" AnimationDuration="0" x:Name="Bardchucunto"/>-->
+        <UI:PUProgressBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" AnimationDuration="0" x:Name="wenjianbar"/>
+        <DataGrid x:Name="Wenjianjia" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="文件名称" Width="8*"  Binding="{Binding key}"/>
+                <DataGridTextColumn Header="文件大小(KB)" Width="1*"  Binding="{Binding size}"/>
+                <DataGridTextColumn Header="最后修改时间" Width="1*"  Binding="{Binding lastModified}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <UI:PUTextBox Grid.Row="3" Grid.ColumnSpan="3" x:Name="tishi"   VerticalScrollBarVisibility="Visible" Height="Auto" Width="Auto"/>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <UI:PUButton Grid.Column="0">下载进度:</UI:PUButton>
+            <UI:PUProgressBar Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" AnimationDuration="0" IsPercentShow="True" x:Name="xiazaijindubar"/>
+        </Grid>
+    </Grid>
+</UserControl>
