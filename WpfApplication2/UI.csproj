@@ -232,6 +232,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="文件\packages.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
